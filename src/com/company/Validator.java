@@ -63,7 +63,11 @@ public class Validator {
         } else if (birthdate.length() > 15) {
             System.out.println("Your birthdate can't be more than 15 digits!");
             return false;
-        } else {
+        } else if (Pattern.matches(".*[@_!#$%^&*()<>?/|}{~:].*", birthdate)){
+            System.out.println("There can't be any special characters in your birthdate!");
+            return false;
+        }
+        else {
             System.out.println(birthdate + " is valid!");
             return true;
         }
